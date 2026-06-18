@@ -66,19 +66,16 @@ body {
 .gf-brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  color: var(--gf-text-title);
-  font-size: 20px;
-  font-weight: 700;
+  height: 32px;
   text-decoration: none;
-  letter-spacing: 0;
 }
 
-.gf-brand-mark {
+.gf-brand-image {
   display: block;
-  width: 28px;
+  width: 260px;
   height: 26px;
   object-fit: contain;
+  object-position: left center;
 }
 
 .gf-search {
@@ -546,8 +543,9 @@ body {
     padding: 0 16px;
   }
 
-  .gf-brand span:last-child {
-    display: none;
+  .gf-brand-image {
+    width: 180px;
+    height: 18px;
   }
 
   .gf-docs-frame {

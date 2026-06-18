@@ -64,8 +64,7 @@ function isActive(link?: string) {
   <div class="gf-docs-shell">
     <header class="gf-topbar">
       <a class="gf-brand" href="/" aria-label="返回首页">
-        <img class="gf-brand-mark" src="/images/gf-logo.png" alt="" />
-        <span>广发证券设计系统</span>
+        <img class="gf-brand-image" src="/images/gf-brand-full.png" alt="广发证券设计系统" />
       </a>
       <button class="gf-search" type="button" aria-label="搜索文档">
         <span class="gf-search-icon">⌕</span>
