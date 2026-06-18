@@ -13,6 +13,73 @@ anchors:
 
 <script setup>
 import { computed, ref } from 'vue';
+import {
+  Activity,
+  ArrowDown,
+  ArrowLeft,
+  ArrowRight,
+  ArrowUp,
+  BadgeCheck,
+  Bell,
+  CalendarDays,
+  ChartArea,
+  ChartBar,
+  ChartLine,
+  ChartPie,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+  ChevronsLeft,
+  ChevronsRight,
+  CircleCheck,
+  CircleHelp,
+  CircleMinus,
+  CirclePlus,
+  CircleX,
+  Clock,
+  Cloud,
+  Copy,
+  CornerDownLeft,
+  CornerDownRight,
+  DollarSign,
+  Download,
+  Ellipsis,
+  Eye,
+  FileText,
+  Folder,
+  Funnel,
+  House,
+  Info,
+  Landmark,
+  Link,
+  Lock,
+  LockOpen,
+  MoveLeft,
+  MoveRight,
+  Pencil,
+  QrCode,
+  RefreshCw,
+  RotateCcw,
+  RotateCw,
+  Save,
+  ScatterChart,
+  Search,
+  Settings,
+  Share2,
+  ShieldAlert,
+  ShieldCheck,
+  SlidersHorizontal,
+  Star,
+  Table2,
+  Trash2,
+  TrendingDown,
+  TrendingUp,
+  TriangleAlert,
+  Upload,
+  User,
+  Wallet
+} from '@lucide/vue';
 
 const keyword = ref('');
 const activeCategory = ref('all');
@@ -34,67 +101,74 @@ const categoryMap = {
 };
 
 const icons = [
-  { name: 'StepBackwardOutlined', category: 'direction', symbol: '‹|' },
-  { name: 'StepForwardOutlined', category: 'direction', symbol: '|›' },
-  { name: 'FastBackwardOutlined', category: 'direction', symbol: '≪' },
-  { name: 'FastForwardOutlined', category: 'direction', symbol: '≫' },
-  { name: 'ArrowUpOutlined', category: 'direction', symbol: '↑' },
-  { name: 'ArrowDownOutlined', category: 'direction', symbol: '↓' },
-  { name: 'ArrowLeftOutlined', category: 'direction', symbol: '←' },
-  { name: 'ArrowRightOutlined', category: 'direction', symbol: '→' },
-  { name: 'CaretUpOutlined', category: 'direction', symbol: '▴' },
-  { name: 'CaretDownOutlined', category: 'direction', symbol: '▾' },
-  { name: 'MenuFoldOutlined', category: 'direction', symbol: '≡‹' },
-  { name: 'MenuUnfoldOutlined', category: 'direction', symbol: '›≡' },
-  { name: 'SwapLeftOutlined', category: 'direction', symbol: '⇐' },
-  { name: 'SwapRightOutlined', category: 'direction', symbol: '⇒' },
-  { name: 'RetweetOutlined', category: 'direction', symbol: '↻' },
-  { name: 'RollbackOutlined', category: 'direction', symbol: '↩' },
+  { name: 'ArrowUpOutlined', category: 'direction', component: ArrowUp },
+  { name: 'ArrowDownOutlined', category: 'direction', component: ArrowDown },
+  { name: 'ArrowLeftOutlined', category: 'direction', component: ArrowLeft },
+  { name: 'ArrowRightOutlined', category: 'direction', component: ArrowRight },
+  { name: 'ChevronUpOutlined', category: 'direction', component: ChevronUp },
+  { name: 'ChevronDownOutlined', category: 'direction', component: ChevronDown },
+  { name: 'ChevronLeftOutlined', category: 'direction', component: ChevronLeft },
+  { name: 'ChevronRightOutlined', category: 'direction', component: ChevronRight },
+  { name: 'StepBackwardOutlined', category: 'direction', component: ChevronsLeft },
+  { name: 'StepForwardOutlined', category: 'direction', component: ChevronsRight },
+  { name: 'MoveLeftOutlined', category: 'direction', component: MoveLeft },
+  { name: 'MoveRightOutlined', category: 'direction', component: MoveRight },
+  { name: 'RotateLeftOutlined', category: 'direction', component: RotateCcw },
+  { name: 'RotateRightOutlined', category: 'direction', component: RotateCw },
+  { name: 'CornerDownLeftOutlined', category: 'direction', component: CornerDownLeft },
+  { name: 'CornerDownRightOutlined', category: 'direction', component: CornerDownRight },
 
-  { name: 'InfoCircleOutlined', category: 'notice', symbol: 'i' },
-  { name: 'QuestionCircleOutlined', category: 'notice', symbol: '?' },
-  { name: 'WarningOutlined', category: 'notice', symbol: '!' },
-  { name: 'CheckCircleOutlined', category: 'notice', symbol: '✓' },
-  { name: 'CloseCircleOutlined', category: 'notice', symbol: '×' },
-  { name: 'PlusCircleOutlined', category: 'notice', symbol: '+' },
-  { name: 'MinusCircleOutlined', category: 'notice', symbol: '-' },
-  { name: 'ClockCircleOutlined', category: 'notice', symbol: '◷' },
-  { name: 'CheckSquareOutlined', category: 'notice', symbol: '☑' },
-  { name: 'CloseSquareOutlined', category: 'notice', symbol: '☒' },
-  { name: 'PlusSquareOutlined', category: 'notice', symbol: '⊞' },
-  { name: 'MinusSquareOutlined', category: 'notice', symbol: '⊟' },
+  { name: 'InfoCircleOutlined', category: 'notice', component: Info },
+  { name: 'QuestionCircleOutlined', category: 'notice', component: CircleHelp },
+  { name: 'WarningOutlined', category: 'notice', component: TriangleAlert },
+  { name: 'CheckCircleOutlined', category: 'notice', component: CircleCheck },
+  { name: 'CloseCircleOutlined', category: 'notice', component: CircleX },
+  { name: 'PlusCircleOutlined', category: 'notice', component: CirclePlus },
+  { name: 'MinusCircleOutlined', category: 'notice', component: CircleMinus },
+  { name: 'ClockCircleOutlined', category: 'notice', component: Clock },
+  { name: 'BellOutlined', category: 'notice', component: Bell },
+  { name: 'BadgeCheckOutlined', category: 'notice', component: BadgeCheck },
+  { name: 'ShieldAlertOutlined', category: 'notice', component: ShieldAlert },
+  { name: 'ShieldCheckOutlined', category: 'notice', component: ShieldCheck },
 
-  { name: 'SearchOutlined', category: 'common', symbol: '⌕' },
-  { name: 'EditOutlined', category: 'common', symbol: '✎' },
-  { name: 'DeleteOutlined', category: 'common', symbol: '⌫' },
-  { name: 'UploadOutlined', category: 'common', symbol: '⇧' },
-  { name: 'DownloadOutlined', category: 'common', symbol: '⇩' },
-  { name: 'CalendarOutlined', category: 'common', symbol: '□' },
-  { name: 'FilterOutlined', category: 'common', symbol: '⊥' },
-  { name: 'CloudOutlined', category: 'common', symbol: '☁' },
-  { name: 'HomeOutlined', category: 'common', symbol: '⌂' },
-  { name: 'UserOutlined', category: 'common', symbol: '人' },
-  { name: 'FolderOutlined', category: 'common', symbol: '▣' },
-  { name: 'FileOutlined', category: 'common', symbol: '▤' },
-  { name: 'CopyOutlined', category: 'common', symbol: '⧉' },
-  { name: 'ShareOutlined', category: 'common', symbol: '↗' },
-  { name: 'StarOutlined', category: 'common', symbol: '☆' },
-  { name: 'EyeOutlined', category: 'common', symbol: '◉' },
-  { name: 'LockOutlined', category: 'common', symbol: '⌐' },
-  { name: 'UnlockOutlined', category: 'common', symbol: '¬' },
-  { name: 'TableOutlined', category: 'common', symbol: '▦' },
-  { name: 'QrcodeOutlined', category: 'common', symbol: '▧' },
+  { name: 'SearchOutlined', category: 'common', component: Search },
+  { name: 'EditOutlined', category: 'common', component: Pencil },
+  { name: 'DeleteOutlined', category: 'common', component: Trash2 },
+  { name: 'UploadOutlined', category: 'common', component: Upload },
+  { name: 'DownloadOutlined', category: 'common', component: Download },
+  { name: 'CalendarOutlined', category: 'common', component: CalendarDays },
+  { name: 'FilterOutlined', category: 'common', component: Funnel },
+  { name: 'CloudOutlined', category: 'common', component: Cloud },
+  { name: 'HomeOutlined', category: 'common', component: House },
+  { name: 'UserOutlined', category: 'common', component: User },
+  { name: 'FolderOutlined', category: 'common', component: Folder },
+  { name: 'FileTextOutlined', category: 'common', component: FileText },
+  { name: 'CopyOutlined', category: 'common', component: Copy },
+  { name: 'ShareOutlined', category: 'common', component: Share2 },
+  { name: 'StarOutlined', category: 'common', component: Star },
+  { name: 'EyeOutlined', category: 'common', component: Eye },
+  { name: 'LockOutlined', category: 'common', component: Lock },
+  { name: 'UnlockOutlined', category: 'common', component: LockOpen },
+  { name: 'TableOutlined', category: 'common', component: Table2 },
+  { name: 'QrcodeOutlined', category: 'common', component: QrCode },
+  { name: 'SettingOutlined', category: 'common', component: Settings },
+  { name: 'SaveOutlined', category: 'common', component: Save },
+  { name: 'RefreshOutlined', category: 'common', component: RefreshCw },
+  { name: 'MoreOutlined', category: 'common', component: Ellipsis },
+  { name: 'LinkOutlined', category: 'common', component: Link },
 
-  { name: 'PieChartOutlined', category: 'data', symbol: '◔' },
-  { name: 'LineChartOutlined', category: 'data', symbol: '⌁' },
-  { name: 'BarChartOutlined', category: 'data', symbol: '▥' },
-  { name: 'AreaChartOutlined', category: 'data', symbol: '▰' },
-  { name: 'DotChartOutlined', category: 'data', symbol: '∴' },
-  { name: 'SlidersOutlined', category: 'data', symbol: '≋' },
-  { name: 'RiseOutlined', category: 'data', symbol: '↗' },
-  { name: 'FallOutlined', category: 'data', symbol: '↘' },
-  { name: 'RiseFilled', category: 'data', symbol: '▲' },
-  { name: 'FallFilled', category: 'data', symbol: '▼' }
+  { name: 'PieChartOutlined', category: 'data', component: ChartPie },
+  { name: 'LineChartOutlined', category: 'data', component: ChartLine },
+  { name: 'BarChartOutlined', category: 'data', component: ChartBar },
+  { name: 'AreaChartOutlined', category: 'data', component: ChartArea },
+  { name: 'DotChartOutlined', category: 'data', component: ScatterChart },
+  { name: 'SlidersOutlined', category: 'data', component: SlidersHorizontal },
+  { name: 'RiseOutlined', category: 'data', component: TrendingUp },
+  { name: 'FallOutlined', category: 'data', component: TrendingDown },
+  { name: 'ActivityOutlined', category: 'data', component: Activity },
+  { name: 'BankOutlined', category: 'data', component: Landmark },
+  { name: 'WalletOutlined', category: 'data', component: Wallet },
+  { name: 'DollarOutlined', category: 'data', component: DollarSign }
 ];
 
 const filteredIcons = computed(() => {
@@ -131,7 +205,7 @@ async function copyIcon(name) {
 
 # Icon 图标
 
-Icon 组件用于统一渲染 GF Design 图标资产。图标默认继承当前文字颜色，适用于按钮、表单、导航、表格操作和数据状态。
+Icon 组件用于统一渲染 GF Design 图标资产。第一期使用 Lucide 开源图标补充预览库，图标默认继承当前文字颜色，适用于按钮、表单、导航、表格操作和数据状态。
 
 ## 基础用法
 
@@ -142,10 +216,10 @@ Icon 组件用于统一渲染 GF Design 图标资产。图标默认继承当前�
 
 <div class="gf-demo-card">
   <div class="gf-icon-basic-demo">
-    <span class="gf-icon-symbol">⌕</span>
-    <span class="gf-icon-symbol primary">⇩</span>
-    <span class="gf-icon-symbol success">✓</span>
-    <span class="gf-icon-symbol danger">!</span>
+    <span class="gf-icon-symbol"><Search :size="20" :stroke-width="2" /></span>
+    <span class="gf-icon-symbol primary"><Download :size="20" :stroke-width="2" /></span>
+    <span class="gf-icon-symbol success"><CircleCheck :size="20" :stroke-width="2" /></span>
+    <span class="gf-icon-symbol danger"><TriangleAlert :size="20" :stroke-width="2" /></span>
     <button class="gf-button primary"><span class="gf-button-plus">+</span>新增</button>
   </div>
 </div>
@@ -155,7 +229,7 @@ Icon 组件用于统一渲染 GF Design 图标资产。图标默认继承当前�
 <div class="gf-icon-doc-panel">
   <div class="gf-icon-toolbar">
     <label class="gf-icon-search-field">
-      <span>⌕</span>
+      <Search :size="16" :stroke-width="2" aria-hidden="true" />
       <input v-model="keyword" type="search" placeholder="搜索图标名称" />
     </label>
     <span class="gf-icon-total">{{ filteredIcons.length }} / {{ icons.length }}</span>
@@ -183,7 +257,9 @@ Icon 组件用于统一渲染 GF Design 图标资产。图标默认继承当前�
       :title="`复制 ${icon.name}`"
       @click="copyIcon(icon.name)"
     >
-      <span class="gf-icon-library-symbol">{{ icon.symbol }}</span>
+      <span class="gf-icon-library-symbol">
+        <component :is="icon.component" :size="24" :stroke-width="2" aria-hidden="true" />
+      </span>
       <strong>{{ icon.name }}</strong>
       <em>{{ categoryMap[icon.category] }}</em>
     </button>
@@ -197,11 +273,11 @@ Icon 组件用于统一渲染 GF Design 图标资产。图标默认继承当前�
 
 <div class="gf-demo-card">
   <div class="gf-icon-size-row">
-    <span style="font-size: 12px">⌕</span>
-    <span style="font-size: 16px">⌕</span>
-    <span style="font-size: 20px">⌕</span>
-    <span style="font-size: 24px">⌕</span>
-    <span style="font-size: 32px">⌕</span>
+    <span><Search :size="12" :stroke-width="2" /></span>
+    <span><Search :size="16" :stroke-width="2" /></span>
+    <span><Search :size="20" :stroke-width="2" /></span>
+    <span><Search :size="24" :stroke-width="2" /></span>
+    <span><Search :size="32" :stroke-width="2" /></span>
   </div>
 </div>
 
@@ -220,3 +296,4 @@ Icon 组件用于统一渲染 GF Design 图标资产。图标默认继承当前�
 3. 仅图标按钮点击热区不小于 `32 x 32px`。
 4. 选中态使用 `#2A6CDD`，危险态使用 `#D12B2B`，禁用态使用 `#C8C9CC`。
 5. SVG 落地时使用 `currentColor`，让图标跟随文本或组件状态。
+6. 当前预览图标来自 Lucide 开源图标库，后续可替换为 Figma 中的 GF Design 专属 SVG。

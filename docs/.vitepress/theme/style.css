@@ -938,6 +938,14 @@ body {
   color: var(--gf-danger);
 }
 
+.gf-icon-symbol svg,
+.gf-icon-size-row svg,
+.gf-icon-search-field svg,
+.gf-icon-library-symbol svg {
+  display: block;
+  stroke: currentColor;
+}
+
 .gf-icon-doc-panel {
   position: relative;
   border: 1px solid var(--gf-border-light);
