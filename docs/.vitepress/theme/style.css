@@ -230,6 +230,23 @@ body {
   letter-spacing: 0;
 }
 
+.gf-doc > h1 {
+  position: relative;
+  min-height: 132px;
+  padding: 24px 260px 40px 0;
+  border-bottom: 1px solid var(--gf-border-light);
+}
+
+.gf-doc > h1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 48px;
+  width: 220px;
+  height: 132px;
+  background: url("/images/hero-cloud.png") center / contain no-repeat;
+}
+
 .gf-doc h2 {
   margin: 46px 0 14px;
   padding-top: 8px;
@@ -564,6 +581,15 @@ body {
 
   .gf-hero {
     grid-template-columns: 1fr;
+  }
+
+  .gf-doc > h1 {
+    min-height: 0;
+    padding: 0 0 28px;
+  }
+
+  .gf-doc > h1::after {
+    display: none;
   }
 
   .gf-accent-grid,
