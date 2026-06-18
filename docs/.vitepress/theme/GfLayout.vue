@@ -2,7 +2,7 @@
 import { computed } from 'vue';
 import { useData, useRoute } from 'vitepress';
 
-const { frontmatter } = useData();
+const { frontmatter, page } = useData();
 const route = useRoute();
 
 const navGroups = [
@@ -52,6 +52,8 @@ const navGroups = [
 ];
 
 const anchors = computed(() => frontmatter.value.anchors ?? []);
+const isHome = computed(() => route.path === '/' || route.path === '/index.html');
+const pageTitle = computed(() => frontmatter.value.title || page.value.title);
 
 function isActive(link?: string) {
   if (!link) return false;
@@ -96,7 +98,16 @@ function isActive(link?: string) {
 
       <main class="gf-main">
         <article class="gf-doc">
-          <Content />
+          <header v-if="!isHome" class="gf-page-hero">
+            <div class="gf-page-hero-copy">
+              <h1>{{ pageTitle }}</h1>
+              <p v-if="frontmatter.description">{{ frontmatter.description }}</p>
+            </div>
+            <img class="gf-page-hero-image" src="/images/hero-cloud.png" alt="" />
+          </header>
+          <div :class="['gf-content', { 'has-page-hero': !isHome }]">
+            <Content />
+          </div>
         </article>
       </main>
 

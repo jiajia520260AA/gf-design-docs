@@ -230,21 +230,36 @@ body {
   letter-spacing: 0;
 }
 
-.gf-doc > h1 {
-  position: relative;
-  min-height: 132px;
-  padding: 24px 260px 40px 0;
+.gf-page-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  align-items: center;
+  gap: 40px;
+  min-height: 170px;
+  padding: 0 0 38px;
   border-bottom: 1px solid var(--gf-border-light);
+  margin-bottom: 38px;
 }
 
-.gf-doc > h1::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 48px;
+.gf-page-hero-copy h1 {
+  margin: 0;
+}
+
+.gf-page-hero-copy p {
+  max-width: 560px;
+  margin: 12px 0 0;
+}
+
+.gf-page-hero-image {
+  display: block;
   width: 220px;
-  height: 132px;
-  background: url("/images/hero-cloud.png") center / contain no-repeat;
+  max-width: 100%;
+  height: auto;
+  justify-self: center;
+}
+
+.gf-content.has-page-hero h1:first-of-type {
+  display: none;
 }
 
 .gf-doc h2 {
@@ -583,12 +598,14 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .gf-doc > h1 {
+  .gf-page-hero {
+    grid-template-columns: 1fr;
     min-height: 0;
     padding: 0 0 28px;
+    margin-bottom: 28px;
   }
 
-  .gf-doc > h1::after {
+  .gf-page-hero-image {
     display: none;
   }
 
